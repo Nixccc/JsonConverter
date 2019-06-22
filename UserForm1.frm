@@ -16,18 +16,17 @@ Attribute VB_Exposed = False
 Dim mouse_down As Boolean
 Dim mouse_starting_X As Double
 Dim mouse_starting_Y As Double
+Dim row2 As Integer
 Private Sub CommandButton1_Click()
-Call filereader.jsonConverter(ComboBox1.Value)
+Debug.Print ("row2 is when button clicked: " & row2)
+Call Module1.jsonConverter(ComboBox1.Value, row2)
 End Sub
-
 
 Private Sub CommandButton2_Click()
 UserForm1.Hide
 End Sub
 
-Private Sub Label1_Click()
 
-End Sub
 
 Private Sub UserForm_Initialize()
 Application.ScreenUpdating = False
@@ -45,13 +44,28 @@ ComboBox1.BorderColor = &HA9A9A9
 CommandButton1.BackColor = RGB(255, 255, 255)
 CommandButton2.BackColor = RGB(255, 255, 255)
 
-
 Dim rng As Range, cell As Variant
-Set rng = Range("C4:XFD4")
+
+With Worksheets(1).Range("A1:A30000")
+    'Dim row As Integer
+    Set c = .Find("Engine")
+     If Not c Is Nothing Then
+     Debug.Print ("something")
+     Else
+     MsgBox ("Couldn't find Engine Row")
+     End If
+    
+    c.Select
+    row = ActiveCell.row
+End With
+row2 = row
+Debug.Print (row2)
+Set rng = Range("C" & row & ":XFD" & row)
+Debug.Print ("Row2 is after with: " & row2)
 For Each cell In rng
     If Not (IsEmpty(cell.Value) Or Application.IsNA(cell.Value) Or CStr(cell.Value) = "#N/A") Then
         ComboBox1.AddItem cell.Value
-        Debug.Print (cell.Value)
+        'Debug.Print (cell.Value)
         End If
 Next
 Application.ScreenUpdating = True

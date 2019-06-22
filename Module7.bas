@@ -1,4 +1,4 @@
-Attribute VB_Name = "noborder"
+Attribute VB_Name = "Module7"
 Option Explicit
 Option Private Module
 

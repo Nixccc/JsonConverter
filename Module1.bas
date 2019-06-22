@@ -1,15 +1,17 @@
-Attribute VB_Name = "filereader"
-Public Sub jsonConverter(engine As String)
+Attribute VB_Name = "Module1"
+Public Sub jsonConverter(engine As String, engineRow As Integer)
 
 'Optimization START
 Application.ScreenUpdating = False
 Application.Calculation = xlCalculationManual
-
+Debug.Print ("enginerow is " & engineRow)
 'Code for Excel to Json START
 Dim rng2 As Range, items As New Collection, myitem As New Dictionary, i As Integer, cell As Variant
 Dim rng1 As Range
-Set rng1 = Range("A4:XFD4")
+Debug.Print ("A" & engineRow & ":XFD" & engineRow)
+Set rng1 = Range("A" & engineRow & ":XFD" & engineRow)
 Dim os As Integer
+
 os = 0
 If (engine = "" Or engine = "Engine" Or engine = "Select engine") Then
 Debug.Print ("Didn't select anything")
@@ -20,12 +22,12 @@ For Each cell In rng1
         Debug.Print ("SUCCES")
         Exit For
     End If
-    os = os + 1
+os = os + 1
 Next
 Debug.Print ("os = " & os)
 
-
-Set rng2 = Range("A4:A30000")
+Debug.Print ("A" & engineRow & ":A30000")
+Set rng2 = Range("A" & engineRow & ":A30000")
 'Set rng = Range(Sheets(2).Range("A2"), Sheets(2).Range("A2").End(xlDown)) use this for dynamic range
 i = 0
     For Each cell In rng2
@@ -45,7 +47,7 @@ Application.ScreenUpdating = True
 Application.Calculation = xlCalculationAutomatic
 
 Call printToFile(engine)
-Call removetext.removeText
+Call removeText
 Call messagecompleted
 End If
 End Sub

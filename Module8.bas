@@ -1,4 +1,4 @@
-Attribute VB_Name = "scroll"
+Attribute VB_Name = "Module8"
 Option Explicit
 
 Type POINTAPI

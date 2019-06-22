@@ -1,4 +1,4 @@
-Attribute VB_Name = "complete"
+Attribute VB_Name = "Module3"
 
 Sub messagecompleted()
  Dim Msg, Buttons, Title

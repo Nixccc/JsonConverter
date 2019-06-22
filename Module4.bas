@@ -1,4 +1,4 @@
-Attribute VB_Name = "removetext"
+Attribute VB_Name = "Module4"
 Public Sub removeText()
 Range("A30000").Select
 ActiveCell.FormulaR1C1 = ""

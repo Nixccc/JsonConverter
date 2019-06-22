@@ -1,4 +1,4 @@
-Attribute VB_Name = "writetofile"
+Attribute VB_Name = "Module2"
 Public Sub printToFile(enginename As String)
 Application.ScreenUpdating = False
 Application.Calculation = xlCalculationManual
