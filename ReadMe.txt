@@ -1,3 +1,5 @@
+Version 2.0
+
 1. Put your excel file in the folder "EXCELTOJSON"
 
 2. Enable developer options:
