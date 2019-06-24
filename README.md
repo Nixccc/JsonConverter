@@ -40,3 +40,5 @@ Convert **Excel** sheets into **Json** files
 >Remember to not delete the folder Jso as it outputs the json files to it
 
 >Remember if using an older verison than **2.0** to put the engine row at 4 as it searches for engines on the fourth row **(Patched out)**
+---
+## **Version:** 2.0
